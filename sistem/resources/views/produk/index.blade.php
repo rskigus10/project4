@@ -306,6 +306,11 @@
       <div class="container">
         <div class="row mt">
           <div class="col-md-12">
+            <div class="row">
+            <div class="col-md-12">
+            @include('template.utils.notif')
+            </div>
+            </div>
             <div class="card">
               <div class="card-header">
                 Data Produk

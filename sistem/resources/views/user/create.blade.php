@@ -7,9 +7,10 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Beranda</title>
+  <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="{{url('public')}}/img/favicon.png" rel="icon">
   <link href="../project3/public/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -132,7 +133,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="../project3/public/img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="../project4/public/img/ui-zac.jpg"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -144,7 +145,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="../project3/public/img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="../project4/public/img/ui-divya.jpg"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -156,7 +157,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="../project3/public/img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="../project4/public/img/ui-danro.jpg"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -168,7 +169,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="../project3/public/img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="../project4/public/img/ui-sherman.jpg"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -250,7 +251,7 @@
           <p class="centered"><a href="profile.html"><img src="../project3/public/img/poto01.jpg" class="img-circle" width="70"></a></p>
           <h5 class="centered">Rizki Gusmianto</h5>
           <li class="mt">
-            <a class="active" href="{{url('/template')}}">
+            <a class="" href="{{url('/template')}}">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -262,139 +263,98 @@
               </a>
           </li>
           <li>
-            <a href="{{url('/produk')}}">
+            <a href="{{url('/product')}}">
               <i class="fa fa-cogs"></i>
-              <span>Produk</span>
-              </a>
-          </li>
-          <li>
-            <a href="{{url('/register')}}">
-              <i class="fa fa-android"></i>
-              <span>Register</span>
+              <span>Product</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a href="{{url('user')}}">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>Kategory</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="{{url('/login')}}">Login</a></li>
+              <li><a href="lock_screen.html">Lock Screen</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a class="active" href="{{url('/promo')}}">
               <i class="fa fa-user"></i>
-              <span>user</span>
+              <span>User</span>
               </a>
           <li>
         </ul>
         <!-- sidebar menu end-->
       </div>
     </aside>
-    <!--sidebar end-->
+     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper site-min-height">
-        <h3><i class="fa fa-angle-right"></i> SELAMAT DATANG</h3>
-        <div class="row mt">
-          <div class="col-lg-12">
-            <p>Apapun yang anda cari tentang alat musik kami menyediakan semuanya.</p>
-          </div>
+      <section class="wrapper ">
+        <h3><i class="fa fa-angle-right"></i>Create Data User</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+            <div class="col-md-12">
+            @include('template.utils.notif')
+            </div>
+            </div>
+              <div class="card-header">
+                Tambah Data User
+              </div>
+              <div class="card-body">
+                <form action="{{url('user')}}" method="post">
+                  @csrf
+                  <div class="form group">
+                      <label for="" class="control-label">Nama</label>
+                      <input type="text" class="form-control" name="nama">
+                  </div>
+                  <div class="form group">
+                      <label for="" class="control-label">Username</label>
+                      <input type="text" class="form-control" name="username">
+                  </div>
+                  <div class="form group">
+                      <label for="" class="control-label">Email</label>
+                      <input type="email" class="form-control" name="email">
+                  </div>
+                  <div class="form group">
+                      <label for="" class="control-label">Password</label>
+                      <input type="password" class="form-control" name="password">
+                  </div>
+                  
+                  <button class="btn btn-dark float-right "><i class="fa fa-save"></i>Simpan</button>
+                </form>
+              </div>
+          </div>>
         </div>
-      </section>
-            
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="index.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
       </div>
-    </footer>
-    <!--footer end-->
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    
+      <!-- js placed at the end of the document so the pages load faster -->
   <script src="{{url('public')}}/lib/jquery/jquery.min.js"></script>
-
   <script src="{{url('public')}}/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="{{url('public')}}/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="{{url('public')}}/lib/jquery.scrollTo.min.js"></script>
   <script src="{{url('public')}}/lib/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="{{url('public')}}/lib/jquery.sparkline.js"></script>
   <!--common script for all pages-->
-  <script src="{{url('public')}}/lib/common-scripts.js"></script>
-  <script type="text/javascript" src="{{url('public')}}/lib/gritter/js/jquery.gritter.js"></script>
-  <script type="text/javascript" src="{{url('public')}}/lib/gritter-conf.js"></script>
+  <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="{{url('public')}}/lib/sparkline-chart.js"></script>
-  <script src="{{url('public')}}/lib/zabuto_calendar.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: 'img/ui-sam.jpg',
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
-      return false;
-    });
-  </script>
-  <script type="application/javascript">
-    $(document).ready(function() {
-      $("#date-popover").popover({
-        html: true,
-        trigger: "manual"
-      });
-      $("#date-popover").hide();
-      $("#date-popover").click(function(e) {
-        $(this).hide();
-      });
-      $("#my-calendar").zabuto_calendar({
-        action: function() {
-          return myDateFunction(this.id, false);
-        },
-        action_nav: function() {
-          return myNavFunction(this.id);
-        },
-        ajax: {
-          url: "show_data.php?action=1",
-          modal: true
-        },
-        legend: [{
-            type: "text",
-            label: "Special event",
-            badge: "00"
-          },
-          {
-            type: "block",
-            label: "Regular event",
-          }
-        ]
-      });
-    });
-    function myNavFunction(id) {
-      $("#date-popover").hide();
-      var nav = $("#" + id).data("navigation");
-      var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-    }
-  </script>
+
 </body>
 
-</html>
+</html
+    

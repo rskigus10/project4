@@ -41,11 +41,11 @@ class ProdukController extends Controller {
         $produk->deskripsi = request('deskripsi');
         $produk->save();
 
-        return redirect('produk');
+        return redirect('produk')->with('warning', 'Data Berhasil Diupdate');
     }
     function destroy(Produk $produk){
         $produk->delete();
 
-        return redirect('produk');
+        return redirect('produk')->with('danger', 'Data Berhasil Dihapus');
     }
 }

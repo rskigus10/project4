@@ -35,11 +35,15 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="{{url('login')}}" method="post">
+      <form class="form-login" action="{{url('register')}}" method="post">
         @csrf
-        <h2 class="form-login-heading">sign in now</h2>
+        <h2 class="form-login-heading">REGISTER</h2>
         <div class="login-wrap">
         @include('template.utils.notif')
+          <label>Nama</label>
+          <input type="text" class="form-control" placeholder="Nama" name="nama">
+          <label>Username</label>
+          <input type="text" class="form-control" placeholder="Username" name="username">
           <label>Email</label>
           <input type="email" class="form-control" placeholder="Email" name="email">
           <label>Password</label>
@@ -48,7 +52,7 @@
           <span class="pull-right">
             <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
           </span>
-          <input type="submit" class="btn btn-block btn-success" value="LOGIN">
+          <input type="submit" class="btn btn-block btn-success" value="REGISTER">
           <hr>
           <div class="login-social-link centered">
             <p>or you can sign in via your social network</p>
