@@ -58,7 +58,7 @@
           <div class="registration">
             Don't have an account yet?
             <br/>
-            <a href="#">Create an account</a>
+            <a href="{{url('register')}}">Create an account</a>
           </div>
         </div>
       </form>

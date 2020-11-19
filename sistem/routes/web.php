@@ -21,26 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('template', [HomeController::class, 'showTemplate']);
 route::get('kategori', [HomeController::class, 'showKategori']);
 
-route::get('produk', [ProdukController::class, 'index']);
-route::get('produk/create', [ProdukController::class, 'create']);
-route::post('produk', [ProdukController::class, 'store']);
-route::get('produk/{produk}', [ProdukController::class, 'show']);
-route::get('produk/{produk}/edit', [ProdukController::class, 'edit']);
-route::put('produk/{produk}', [ProdukController::class, 'update']);
-route::delete('produk/{produk}', [ProdukController::class, 'destroy']);
+route::middleware('auth')->group(function(){
+route::get('template', [HomeController::class, 'showTemplate']);
+route::resource('produk', ProdukController::class);
+route::resource('user', UserController::class);
+});
 
-route::get('user', [UserController::class, 'index']);
-route::get('user/create', [UserController::class, 'create']);
-route::post('user', [UserController::class, 'store']);
-route::get('user/{user}', [UserController::class, 'show']);
-route::get('user/{user}/edit', [UserController::class, 'edit']);
-route::put('user/{user}', [UserController::class, 'update']);
-route::delete('user/{user}', [UserController::class, 'destroy']);
 
-route::get('login', [AuthController::class, 'showLogin']);
+
+route::get('login', [AuthController::class, 'showLogin'])->name('login');
 route::post('login', [AuthController::class, 'loginProcess']);
 
 route::get('register', [AuthController::class, 'showRegister']);

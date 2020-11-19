@@ -60,9 +60,9 @@
             <button class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</button>
           </div>
           <div class="registration">
-            Don't have an account yet?
+            Already have an account?
             <br/>
-            <a href="#">Create an account</a>
+            <a href="#">Login</a>
           </div>
         </div>
       </form>
