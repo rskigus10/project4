@@ -3,7 +3,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{url('public')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Melody Store</span>
     </a>
 
     <!-- Sidebar -->
@@ -30,7 +30,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="{{url('base')}}" class="nav-link">
+            <a href="{{url('admin/template')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 dashboard
@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('produk')}}" class="nav-link">
+            <a href="{{url('admin/produk')}}" class="nav-link">
               <i class="nav-icon fa fa-music"></i>
               <p>
                 product
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('user')}}" class="nav-link">
+            <a href="{{url('admin/user')}}" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 User

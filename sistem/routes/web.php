@@ -20,13 +20,17 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+route::get('client', [HomeController::class, 'showHome']);
 route::get('kategori', [HomeController::class, 'showKategori']);
 
-route::middleware('auth')->group(function(){
-route::get('template', [HomeController::class, 'showTemplate']);
-route::resource('produk', ProdukController::class);
-route::resource('user', UserController::class);
+route::prefix('admin')->middleware('auth')->group(function(){
+    route::post('produk/filter', [ProdukController::class, 'filter']);
+    route::get('template', [HomeController::class, 'showTemplate']);
+    route::resource('produk', ProdukController::class);
+    route::resource('user', UserController::class);
+});
+route::prefix('client')->middleware('auth')->group(function(){
+    route::post('produk/filter', [HomeController::class, 'filter']);
 });
 
 

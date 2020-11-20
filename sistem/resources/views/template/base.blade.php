@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="{{url('public')}}/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -32,6 +35,7 @@ to get the desired effect
   @include('template.section.sidebar')
 
   <div class="content-wrapper">
+      <p>SELAMAT DATANG</p>
     @yield('content')
   </div>
 </div>
@@ -62,11 +66,18 @@ to get the desired effect
 <!-- Bootstrap -->
 <script src="{{url('public')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
+<script src="{{url('public')}}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="{{url('public')}}/dist/js/adminlte.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="{{url('public')}}/plugins/chart.js/Chart.min.js"></script>
 <script src="{{url('public')}}/dist/js/demo.js"></script>
 <script src="{{url('public')}}/dist/js/pages/dashboard3.js"></script>
+<script>
+  $(".table-datatable").DataTable();
+</script>
 </body>
 </html>
