@@ -9,13 +9,12 @@
               <div class="card-body">
                 <h3>{{$produk->nama}}</h3>
                 <hr>
-                <p> Rp. {{number_format($produk->harga)}} |
-                    stok : {{$produk->stok}}
-                    Berat : {{$produk->berat}} gr |
-                    Seller : {{$produk->seller->username}}
-                </p>
                 <p>
-                    {{!! nl2br($produk->deskripsi) !!}}
+                    {{$produk->harga}} |
+                    stok : {{$produk->stok}} |
+                    Berat : {{$produk->berat}} Kg |
+                    Seller : {{$produk->seller->username}} |
+                    Tanggal Produk : {{$produk->created_at->diffForHumans()}}
                 </p>
               </div>
           </div>
