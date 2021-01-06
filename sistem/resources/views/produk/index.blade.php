@@ -1,4 +1,7 @@
+@inject('timeService', 'App\Services\TimeServices')
+
 @extends('template.base')
+
 @section('content')
 <section id="main-content">
       <section class="wrapper ">
@@ -13,6 +16,9 @@
               </div>
               <div class="card">
                 <div class="card-header">
+                  <div class="float-right">
+                   jam : {{$timeService->showTimeNow()}}
+                  </div>
                     Filter
                 </div>
                 <div class="div card-body">
@@ -62,7 +68,7 @@
                           <div class="btn-group">
                             <a href="{{url('admin/produk', $produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
                             <a href="{{url('admin/produk', $produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                            @include('template.utils.delete', ['url' => url('produk', $produk->id)])
+                            @include('template.utils.delete', ['url' => url('admin/produk', $produk->id)])
                           </div>
                       </td>
                       <td>{{$produk->nama}}</td>

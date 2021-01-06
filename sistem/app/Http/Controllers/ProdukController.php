@@ -24,6 +24,8 @@ class ProdukController extends Controller {
         $produk->deskripsi = request('deskripsi');
         $produk->save();
 
+        $produk->handleUploadFoto();
+
         return redirect('admin/produk')->with('success', 'Data Berhasil Ditambahkan');
     }
     function show(Produk $produk){
@@ -43,11 +45,13 @@ class ProdukController extends Controller {
         $produk->deskripsi = request('deskripsi');
         $produk->save();
 
+        $produk->handleUploadFoto();
+
         return redirect('admin/produk')->with('warning', 'Data Berhasil Diupdate');
     }
     function destroy(Produk $produk){
+        $produk->handleDelete();
         $produk->delete();
-
         return redirect('admin/produk')->with('danger', 'Data Berhasil Dihapus');
     }
 

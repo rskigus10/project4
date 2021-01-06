@@ -18,6 +18,7 @@
 
   <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  @stack('style')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -76,6 +77,7 @@ to get the desired effect
 <script src="{{url('public')}}/plugins/chart.js/Chart.min.js"></script>
 <script src="{{url('public')}}/dist/js/demo.js"></script>
 <script src="{{url('public')}}/dist/js/pages/dashboard3.js"></script>
+@stack('script')
 <script>
   $(".table-datatable").DataTable();
 </script>
