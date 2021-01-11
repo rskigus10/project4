@@ -19,5 +19,6 @@
                     @endforeach
                   </tbody>
                 </table>
+                {{$list_produk->links()}}
               </div>
               @endsection

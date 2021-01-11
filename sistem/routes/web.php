@@ -40,3 +40,5 @@ route::post('login', [AuthController::class, 'loginProcess']);
 
 route::get('register', [AuthController::class, 'showRegister']);
 route::post('register', [AuthController::class, 'registerProcess']);
+
+route::get('test-collection', [HomeController::class, 'testCollection']);

@@ -6,7 +6,7 @@ use App\Models\Produk;
 class HomeController extends Controller{
 
     function showHome(){
-        $data['list_produk'] = Produk::all();
+        $data['list_produk'] = Produk::Paginate(10);
         return view('client.home', $data);
     }
 
@@ -52,6 +52,36 @@ class HomeController extends Controller{
 
 
         return view('client.home', $data);
+    }
+
+    public function testCollection()
+    {
+        $list_bike = ['Honda', 'Yamaha', 'Kawasaki', 'Suzuki', 'Vespa', 'BMW', 'KTM'];
+        $list_bike = collect($list_bike);
+        $list_produk = Produk::all();
+
+        //sporting
+
+        //sort by harga terendah
+        //dd($list_produk->sortBy('harga'));
+        //sort by harga tertinggi
+        //dd($list_produk->sortByDesc('harga'));
+       // $data['list'] = $list_produk;
+        //return view('test-collection', $data);
+
+        //map
+        //$filtered = $list_produk->filter(function($item){
+            //return $item->harga < 50000;
+        //});
+        //dd($filtered);
+
+        //$sum = $list_produk->max('stok');
+        //dd($sum);
+
+        $data['list'] = Produk::Paginate(10) ;
+        return view('test-collection', $data);
+
+        dd($list_bike, $list_produk);
     }
 
 }

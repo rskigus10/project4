@@ -74,4 +74,6 @@ class ProdukController extends Controller {
 
         return view('produk.index', $data);
     }
+
+    
 }
