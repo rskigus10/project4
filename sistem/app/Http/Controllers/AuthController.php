@@ -16,9 +16,25 @@ class AuthController extends Controller
 
     function loginProcess(){
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
-            return redirect("admin/template")->with('success', 'Login Berhasil');
+            $user = Auth::user();
+            if($user->level == 1) return redirect("template/admin")->with('success', 'Login Berhasil');
+            if($user->level == 0) return redirect("template/pengguna")->with('success', 'Login Berhasil');
         }else{
             return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+        }
+
+        if(request('login_as') == 1){
+            if(Auth::guard('pembeli')->attempt(['email' => request('email'), 'password' => request('password')])){
+                return redirect('template/pembeli')->with('success', 'Login Berhasil');
+            }else{
+                return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+            }
+        }else{
+            if(Auth::guard('penjual')->attempt(['email' => request('email'), 'password' => request('password')])){
+                return redirect('template/penjual')->with('success', 'Login Berhasil');
+            }else{
+                return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+            }
         }
     }
 
@@ -37,8 +53,11 @@ class AuthController extends Controller
 
     }
 
-    function logout(){
-
+    function Logout(){
+        Auth::logout();
+        Auth::guard('pembeli')->logout();
+        Auth::guard('penjual')->logout();
+        return redirect('login');
     }
 
     function CreateanAccount(){

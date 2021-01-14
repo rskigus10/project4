@@ -16,4 +16,8 @@ class Produk extends Model {
         'updated_at' => 'datetime',
         'berat' => 'decimal:2'
     ];
+
+    function getHargaAttribute(){
+        return "Rp. ".number_format($this->attributes['harga']);
+    }
 }

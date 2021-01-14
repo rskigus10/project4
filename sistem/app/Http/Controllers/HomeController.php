@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Models\Provinsi;
 
 class HomeController extends Controller{
 
     function showHome(){
         $data['list_produk'] = Produk::Paginate(10);
+        $data['list_provinsi'] = Provinsi::all();
         return view('client.home', $data);
     }
 
@@ -82,6 +84,11 @@ class HomeController extends Controller{
         return view('test-collection', $data);
 
         dd($list_bike, $list_produk);
+    }
+
+    function testAjax(){
+        $data['list_provinsi'] = Provinsi::all();
+        return view('test-ajax', $data);
     }
 
 }
