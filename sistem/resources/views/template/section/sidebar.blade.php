@@ -17,8 +17,12 @@
           <a href="#" class="d-block">
           @if(Auth::check())
             {{request()->user()->nama}}
+          @elseif(Auth::guard('pembeli')->check())
+            {{Auth::guard('pembeli')->user()->nama}}
+          @elseif(Auth::guard('penjual')->check())
+            {{Auth::guard('penjual')->user()->nama}}
           @else
-            <a href="{{url('login')}}">Silahkan Login</a>
+            Silahkan Login
           @endif
           </a>
         </div>

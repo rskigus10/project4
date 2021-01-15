@@ -31,19 +31,24 @@ to get the desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  @include('template.section.header')
-  @include('template.section.sidebar')
+    <div class="wrapper">
+      @include('template.section.header')
+      @include('template.section.sidebar')
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+            @include('template.utils.notif')
+          </div>
+        </div>
+      </div>
 
-  <div class="content-wrapper">
-      <p>SELAMAT DATANG</p>
-    @yield('content')
-  </div>
-</div>
-  </div>
+        @yield('content')
+      </div>
+    </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
+trol Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>

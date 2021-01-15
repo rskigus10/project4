@@ -44,6 +44,14 @@
           <input type="email" class="form-control" placeholder="Email" name="email">
           <label>Password</label>
           <input type="password" class="form-control" placeholder="Password" name="password">
+          <!-- <div class="input-group mb3">
+            <select name="login_as" id="" class="form-control">
+              <option value="1">Admin</option>
+              <option value="2">Pengguna</option>
+            </select>
+          </div> -->
+
+          
           <input type="checkbox" value="remember-me"> Remember me
           <span class="pull-right">
             <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>

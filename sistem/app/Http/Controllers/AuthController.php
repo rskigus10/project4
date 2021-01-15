@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Pembeli;
+use App\Models\Penjual;
+
 
 class AuthController extends Controller
 {
@@ -15,27 +18,51 @@ class AuthController extends Controller
     }
 
     function loginProcess(){
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
-            $user = Auth::user();
-            if($user->level == 1) return redirect("template/admin")->with('success', 'Login Berhasil');
-            if($user->level == 0) return redirect("template/pengguna")->with('success', 'Login Berhasil');
-        }else{
-            return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+        // if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+        //     $user = Auth::user();
+        //     if($user->level == 1) return redirect("template/admin")->with('success', 'Login Berhasil');
+        //     if($user->level == 0) return redirect("template/pengguna")->with('success', 'Login Berhasil');
+        // }else{
+        //     return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+        // }
+
+        $email = request('email');
+        $user = Pembeli::where('email', $email)->first();
+        if($user){
+            $guard = 'pembeli';
+        } else {
+            $user = Penjual::where('email', $email)->first();
+            if($user) {
+                $guard = 'penjual';
+            }else{
+                $guard = false;
+            }
         }
 
-        if(request('login_as') == 1){
-            if(Auth::guard('pembeli')->attempt(['email' => request('email'), 'password' => request('password')])){
-                return redirect('template/pembeli')->with('success', 'Login Berhasil');
-            }else{
-                return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
-            }
+        if(!$guard){
+            return back()->with('danger', 'Login Gagal, Email Tidak Ditemukan Di Database');
         }else{
-            if(Auth::guard('penjual')->attempt(['email' => request('email'), 'password' => request('password')])){
-                return redirect('template/penjual')->with('success', 'Login Berhasil');
+            if(Auth::guard($guard)->attempt(['email' => request('email'), 'password' => request('password')])){
+              return redirect("template/$guard")->with('success', 'Login Berhasil');  
             }else{
                 return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
             }
         }
+
+
+        //     if(request('login_as') == 1){
+        //         if(Auth::guard('pembeli')->attempt(['email' => request('email'), 'password' => request('password')])){
+        //             return redirect('template/pembeli')->with('success', 'Login Berhasil');
+        //         }else{
+        //             return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+        //         }
+        //     }else{
+        //         if(Auth::guard('penjual')->attempt(['email' => request('email'), 'password' => request('password')])){
+        //             return redirect('template/penjual')->with('success', 'Login Berhasil');
+        //         }else{
+        //             return back()->with('danger', 'Login Gagal, Silahkan cek email dan password anda');
+        //         }
+        //     }
     }
 
     function registerProcess(){
@@ -58,10 +85,6 @@ class AuthController extends Controller
         Auth::guard('pembeli')->logout();
         Auth::guard('penjual')->logout();
         return redirect('login');
-    }
-
-    function CreateanAccount(){
-
     }
 
 }

@@ -1,6 +1,6 @@
-@extends('client.base')
+@extends('template.base')
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
                 <div class="card">
@@ -42,31 +42,8 @@
             </div>
         </div>
     </div>
-      <div class="card-body">
-        <div class="row">
-            @foreach($list_produk as $item)
-                <div class="col-md-3 mt-5">
-                    <div class="card">
-                        <div class="card-header">
-                           <p> {{$item->nama}} </p>
-                            <img src="{{url("public/$item->foto")}}" alt="" style="width : 120px; height : 120px;">
-                        </div>
-                        <div class="card-body">
-                            {{$item->deskripsi}}
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center">
-                        {{$list_produk->links()}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
+
 @push('script')
     <script>
         function gantiProvinsi(id){

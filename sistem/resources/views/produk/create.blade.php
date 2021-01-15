@@ -33,7 +33,7 @@
                     <div class="col md-3">
                       <div class="form group">
                         <label for="" class="control-label">Foto</label>
-                        <input type="file" class="form-control" name="foto" accept=".png">
+                        <input type="file" class="form-control" name="foto">
                       </div>
                     </div>
                   </div>
