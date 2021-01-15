@@ -3,19 +3,18 @@
 
 <section id="main-content">
       <section class="wrapper ">
-        <h3><i class="fa fa-angle-right"></i>Create Data User</h3>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="row">
             <div class="col-md-12">
-            @include('template.utils.notif')
             </div>
             </div>
               <div class="card-header">
                 Tambah Data User
               </div>
               <div class="card-body">
+                 
                 <form action="{{url('admin/user')}}" method="post">
                   @csrf
                   <div class="form group">

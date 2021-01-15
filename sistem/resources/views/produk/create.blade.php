@@ -3,7 +3,6 @@
     
     <section id="main-content">
       <section class="wrapper ">
-        <h3><i class="fa fa-angle-right"></i>Create Data Produk</h3>
       <div class="container">
         <div class="row">
           <div class="col-md-12">

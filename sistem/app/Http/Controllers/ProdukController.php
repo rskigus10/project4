@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Http\Requests\ProdukStoreRequest;
 
 
 class ProdukController extends Controller {
@@ -14,7 +15,7 @@ class ProdukController extends Controller {
         return view('produk.create');
 
     }
-    function store(){
+    function store(ProdukStoreRequest $request){
         $produk = new Produk;
         $produk->id_user = request()->user()->id;
         $produk->nama = request('nama');
